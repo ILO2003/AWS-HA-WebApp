@@ -18,6 +18,13 @@ The goal was to design a web application infrastructure that could:
 
 The architecture was also tested through controlled failure scenarios instead of only verifying that resources were successfully deployed.
 
+## Architecture
+
+![AWS High Availability Architecture](Architecture/aws-ha-architecture.png)
+
+The architecture spans two Availability Zones in the AWS eu-north-1 region. The Application Load Balancer is internet-facing across public subnets, while the EC2 application tier and RDS database tier remain in private subnets.
+
+EC2 instances are managed by an Auto Scaling Group across both Availability Zones. RDS uses Multi-AZ deployment with synchronous replication between a primary and standby instance.
 
 ## Design Decisions & Security
 
