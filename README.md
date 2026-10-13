@@ -3,6 +3,7 @@
 A production-style AWS infrastructure project focused on high availability, fault tolerance, scalability, security, and monitoring.
 
 The environment was built across multiple Availability Zones using an Application Load Balancer, EC2 Auto Scaling, private application subnets, Multi-AZ RDS, S3, and CloudWatch.
+🎥 **Project walkthrough:** [Watch the demo video](https://youtu.be/8m0nxpIi-TE)
 
 ## Business Challenge
 
