@@ -17,3 +17,19 @@ The goal was to design a web application infrastructure that could:
 - Separate the web, application, and database layers using network and security boundaries
 
 The architecture was also tested through controlled failure scenarios instead of only verifying that resources were successfully deployed.
+
+
+## Design Decisions & Security
+
+The infrastructure was separated into public, application, and database tiers across two Availability Zones.
+
+- Only the Application Load Balancer is internet-facing.
+- EC2 application instances run in private subnets and do not have public IP addresses.
+- RDS runs in dedicated private database subnets.
+- The ALB accepts HTTP traffic on port 80 from the internet.
+- EC2 instances accept HTTP traffic on port 80 only from the ALB security group.
+- RDS accepts MySQL traffic on TCP/3306 only from the EC2 application security group.
+- Separate route tables were used for the public, application, and database subnet tiers.
+- No NAT Gateway was required for this project because the application bootstrap used software already available in the AMI.
+
+Security groups reference other security groups instead of allowing broad IP ranges between application tiers. This limits traffic to the components that actually need to communicate.
