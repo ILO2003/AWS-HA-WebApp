@@ -1,7 +1,3 @@
-# AWS-HA-WebApp
-Highly available AWS web application architecture using VPC, ALB, EC2 Auto Scaling, RDS Multi-AZ, S3 and CloudWatch.
-
-
 # AWS High Availability Web Application
 
 A production-style AWS infrastructure project focused on high availability, fault tolerance, scalability, security, and monitoring.
